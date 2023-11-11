@@ -1,0 +1,19 @@
+version: '3'
+services:
+  image-server:
+    container_name: image-server
+    image: docker.psi.ch:5000/heidi/image-server:${VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8443:8443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /sls/MX/applications/heidi/image_db:/images:ro
+    networks:
+      - my-network
+
+networks:
+  my-network:
