@@ -18,9 +18,6 @@ import uvicorn
 
 app = FastAPI()
 
-ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-ssl_context.load_cert_chain(certfile="/code/app/certs/cert.pem", keyfile="/code/app/certs/key.pem")
-
 # CORS Configuration
 origins = [
     "http://localhost",
@@ -29,8 +26,6 @@ origins = [
     "https://mx-webapps.psi.ch",
     "http://heidi.psi.ch"
     "http://heidi-test.psi.ch",
-    "https://heidi-test.psi.ch",
-    "https://heidi-test.psi.ch:80"
     # Add more allowed origins as needed
 ]
 app.add_middleware(
@@ -46,9 +41,6 @@ uuid4_re = re.compile(
     re.IGNORECASE,
 )
 
-# BASE_FOLDER = os.getenv("HEIDI_IMAGE_FOLDER")
-# if BASE_FOLDER is None:
-#    BASE_FOLDER = "/sls/MX/applications/heidi/image_db"
 BASE_FOLDER = pathlib.Path("/images")
 
 NUM_IDS = 0
