@@ -24,8 +24,9 @@ origins = [
     "http://localhost:8000",
     "http://localhost:5173",
     "https://mx-webapps.psi.ch",
-    "http://heidi.psi.ch"
-    "http://heidi-test.psi.ch",
+    "https://heidi.psi.ch"
+    "https://heidi-test.psi.ch",
+    "https://heidi-sfx.psi.ch"
     # Add more allowed origins as needed
 ]
 app.add_middleware(
